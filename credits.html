@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Credits</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+  <div class="container py-5">
+    <h1 class="mb-4">Bootstrap Components & Features Used</h1>
+    <p>This portfolio website was built using Bootstrap 5 and custom CSS, without any templates. Below is a list of the main Bootstrap components and features utilized, along with references:</p>
+    <h3 class="mt-4">Navigation & Scrollspy</h3>
+    <p>The site uses a responsive fixed-top navbar with a collapsible menu for smaller screens:contentReference[oaicite:0]{index=0}. Scrollspy is enabled on the <code>body</code> element to update the active navigation link as the user scrolls:contentReference[oaicite:1]{index=1}. We used <code>data-bs-spy="scroll"</code> and <code>data-bs-target="#navbar-main"</code> attributes per Bootstrap's documentation:contentReference[oaicite:2]{index=2}, and initialized it via JavaScript.</p>
+    <h3 class="mt-4">Cards</h3>
+    <p>Bootstrap Cards were used to display content in sections like Education, Projects, and Hobbies. Cards provide a flexible content container with padding and contextual backgrounds:contentReference[oaicite:3]{index=3}. We utilized the <code>.card</code> and <code>.card-body</code> classes for structuring card content:contentReference[oaicite:4]{index=4}, and used dark backgrounds to fit the site's theme.</p>
+    <h3 class="mt-4">Carousel</h3>
+    <p>A Bootstrap Carousel showcases multiple projects in a slideshow format. The carousel cycles through content (project highlights) with controls and indicators:contentReference[oaicite:5]{index=5}. One slide is marked with <code>.active</code> to initialize the carousel display:contentReference[oaicite:6]{index=6}, and unique IDs and matching <code>data-bs-target</code> attributes link the controls/indicators to the carousel:contentReference[oaicite:7]{index=7}.</p>
+    <h3 class="mt-4">Modal & Forms</h3>
+    <p>The Contact section’s "Contact Me" button triggers a Bootstrap Modal containing contact information and a contact form. The modal component provides a popup dialog over the page:contentReference[oaicite:8]{index=8}. Inside, we used a simple form (with <code>&lt;form&gt;</code>, inputs, labels, and a submit button) styled with Bootstrap form classes for consistency. We also included a <code>btn-close</code> with the <code>btn-close-white</code> class for a white close icon on a dark modal.</p>
+    <h3 class="mt-4">Tabs</h3>
+    <p>Within the contact modal, we implemented Bootstrap Tabs to toggle between the contact info panel and the message form. Using a <code>&lt;ul class="nav nav-tabs"&gt;</code> element, we created two tabs controlled by Bootstrap’s tab plugin:contentReference[oaicite:9]{index=9}. Each tab is associated with a <code>.tab-pane</code> containing the respective content (info or form), allowing a clean separation of content within the modal.</p>
+    <h3 class="mt-4">Bootstrap Grid & Responsiveness</h3>
+    <p>The layout is made responsive using Bootstrap’s grid system. We employed <code>.row</code> and <code>.col-*</code> classes (e.g., <code>.col-md-6</code>) to organize content into columns that stack on smaller devices and sit side-by-side on larger screens:contentReference[oaicite:10]{index=10}. We also used Bootstrap’s utility classes (such as margin/padding utilities and flexbox helpers) to ensure proper spacing and alignment according to modern UX best practices.</p>
+    <h3 class="mt-4">Custom CSS & Animations</h3>
+    <p>Some custom CSS was added for a personalized dark theme and interactive feel. For example, we enabled smooth scrolling for in-page links via the <code>scroll-behavior: smooth</code> property. Navbar links change color on hover for better interactivity, and cards lift slightly on hover using a CSS transform transition. These subtle enhancements provide feedback to users and make the page more engaging, aligning with contemporary UX design principles.</p>
+    <h3 class="mt-4">References</h3>
+    <ul>
+      <li>Bootstrap 5 Documentation – Navbar, Scrollspy:contentReference[oaicite:11]{index=11}:contentReference[oaicite:12]{index=12}</li>
+      <li>Bootstrap 5 Documentation – Cards:contentReference[oaicite:13]{index=13}:contentReference[oaicite:14]{index=14}</li>
+      <li>Bootstrap 5 Documentation – Carousel:contentReference[oaicite:15]{index=15}:contentReference[oaicite:16]{index=16}</li>
+      <li>Bootstrap 5 Documentation – Modal:contentReference[oaicite:17]{index=17}</li>
+      <li>Bootstrap 5 Documentation – Tabs:contentReference[oaicite:18]{index=18}</li>
+      <li>Bootstrap 5 Documentation – Grid System:contentReference[oaicite:19]{index=19}</li>
+    </ul>
+  </div>
+</body>
+</html>
