@@ -1,38 +1,596 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <title>Bootstrap 5 Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diana Dargajova | CV</title>
 
-<div class="container-fluid p-5 bg-primary text-white text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f172a;
+      --card:#0b1224cc;
+      --line:#ffffff14;
+      --text:#e5e7eb;
+      --muted:#a5b4fc;
+      --accent:#60a5fa;
+      --accent2:#a78bfa;
+    }
+    body{
+      background: radial-gradient(1200px 800px at 10% 10%, #1b2a6b55, transparent 55%),
+                  radial-gradient(1000px 700px at 80% 10%, #7c3aed44, transparent 50%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: var(--text);
+    }
+    .glass{
+      background: var(--card);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px #00000055;
+    }
+    .chip{
+      border: 1px solid var(--line);
+      background: #ffffff08;
+      color: var(--text);
+      border-radius: 999px;
+      padding: .4rem .75rem;
+      font-size: .9rem;
+    }
+    .hero{
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent2), #34d399, var(--accent));
+      filter: blur(60px);
+      opacity:.18;
+      z-index:0;
+    }
+    .hero > *{ position: relative; z-index:1; }
+    .nav-pills .nav-link{
+      color: #c7d2fe;
+      border: 1px solid transparent;
+    }
+    .nav-pills .nav-link.active{
+      background: linear-gradient(90deg, #60a5fa55, #a78bfa55);
+      border-color: var(--line);
+    }
+    section{ scroll-margin-top: 92px; }
+    .timeline{
+      border-left: 2px solid var(--line);
+      margin-left: .65rem;
+      padding-left: 1.25rem;
+    }
+    .timeline .item{
+      position:relative;
+      padding-bottom: 1.25rem;
+    }
+    .timeline .item::before{
+      content:"";
+      position:absolute;
+      left:-1.55rem;
+      top:.35rem;
+      width:.8rem; height:.8rem;
+      border-radius:999px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px #ffffff08;
+    }
+    .sticky-col{
+      position: sticky;
+      top: 1rem;
+    }
+    .btn-glow{
+      border: 1px solid var(--line);
+      background: linear-gradient(90deg, #60a5fa33, #a78bfa33);
+      color: var(--text);
+    }
+    .btn-glow:hover{ filter: brightness(1.08); }
+    .small-muted{ color: #cbd5e1; opacity:.9; }
+    a{ color: #93c5fd; }
+    .divider{ border-top:1px solid var(--line); }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#cvNav" data-bs-smooth-scroll="true" tabindex="0">
+
+  <!-- Top bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container py-2">
+      <a class="navbar-brand fw-semibold" href="#top">Diana Dargajova</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <div class="ms-auto d-flex gap-2 align-items-center">
+          <button class="btn btn-sm btn-glow" id="btnCopyEmail">Copy email</button>
+          <button class="btn btn-sm btn-glow" id="btnCopyPhone">Copy phone</button>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+  </nav>
+
+  <div id="top" class="container my-4">
+    <div class="row g-4">
+
+      <!-- Left: sticky nav (Scrollspy) -->
+      <div class="col-lg-3">
+        <div class="glass rounded-4 p-3 sticky-col">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <!-- Replace with an <img> if you want -->
+            <div class="rounded-circle flex-shrink-0"
+                 style="width:56px;height:56px;background:linear-gradient(135deg,#60a5fa,#a78bfa);"></div>
+            <div>
+              <div class="fw-semibold">Diana Dargajova</div>
+              <div class="small-muted">Software Development Student</div>
+            </div>
+          </div>
+
+          <div id="cvNav" class="nav nav-pills flex-column gap-2">
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#experience">Work</a>
+            <a class="nav-link" href="#education">Education</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#achievements">Achievements</a>
+            <a class="nav-link" href="#modules">Modules</a>
+            <a class="nav-link" href="#hobbies">Interests</a>
+          </div>
+
+          <hr class="divider my-3">
+
+          <div class="d-flex flex-wrap gap-2">
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">C++</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: content -->
+      <div class="col-lg-9">
+        <!-- HERO -->
+        <div class="glass rounded-5 p-4 p-md-5 hero mb-4">
+          <div class="row align-items-center g-3">
+            <div class="col-md-8">
+              <h1 class="display-6 fw-semibold mb-2">Software Development Student</h1>
+              <p class="lead mb-3">
+                One-page CV with a smooth flow: scroll through the story, open details in modals,
+                and get quick actions with toasts.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <button class="btn btn-glow" data-bs-toggle="modal" data-bs-target="#quickIntroModal">
+                  Quick intro
+                </button>
+                <a class="btn btn-outline-light" href="#projects">See projects</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="glass rounded-4 p-3">
+                <div class="small-muted">Currently</div>
+                <div class="fw-semibold">BSc (Hons) Computing (Software Dev)</div>
+                <div class="small-muted">TU Dublin · 2020 – Present</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section id="about" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">About</h2>
+          <p class="mb-0">
+            An ambitious and adaptable professional with a strong passion for business and technology,
+            eager to gain valuable industry experience while bringing fresh, innovative ideas to your organization.
+            I aspire to build a career in business, combining analytical mindset with creative problem-solving
+            to drive impactful results.
+          </p>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">Contact</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="small-muted">Phone</div>
+                <div class="fw-semibold" id="phoneText">+353 89 2323 969</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="small-muted">Email</div>
+                <div class="fw-semibold" id="emailText">dargajova@outlook.com</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="small-muted">LinkedIn</div>
+                <div class="fw-semibold">
+                  <a href="#" onclick="return false;">in/dianadargajova</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="small-muted">Eircode</div>
+                <div class="fw-semibold">D24 HD70</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="glass rounded-5 p-4 mb-4">
+          <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+            <h2 class="h4 fw-semibold mb-0">Work experience</h2>
+            <span class="chip">Click for details</span>
+          </div>
+
+          <div class="timeline">
+            <div class="item">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="fw-semibold">Software Developer Intern · Mastercard</div>
+                <div class="small-muted">2024 · 6 months</div>
+              </div>
+              <div class="small-muted mb-2">Global payment systems · Agile teams</div>
+              <button class="btn btn-sm btn-glow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#detailModal"
+                      data-title="Software Developer Intern — Mastercard"
+                      data-subtitle="2024 · 6 months"
+                      data-body="
+                        <ul>
+                          <li>Developed and maintained software solutions supporting global payment systems.</li>
+                          <li>Collaborated with cross-functional teams to design, implement, and test features.</li>
+                          <li>Assisted debugging and optimization to enhance performance and reliability.</li>
+                          <li>Participated in code reviews and improved development best practices.</li>
+                          <li>Worked within agile methodologies to deliver on timelines.</li>
+                        </ul>
+                      ">
+                View details
+              </button>
+            </div>
+
+            <div class="item">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="fw-semibold">Student Ambassador/Tutor · TU Dublin</div>
+                <div class="small-muted">2023 – 2024</div>
+              </div>
+              <div class="small-muted mb-2">Student services · Orientation · Events</div>
+              <button class="btn btn-sm btn-glow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#detailModal"
+                      data-title="Student Ambassador/Tutor — Technological University Dublin"
+                      data-subtitle="2023 – 2024"
+                      data-body="
+                        <ul>
+                          <li>Provided year-round Student Services and informative orientation tours.</li>
+                          <li>Supported the Sports &amp; Societies Festival management.</li>
+                          <li>Reception support and guidance for first-year students.</li>
+                          <li>Collaborated with administrative staff across tasks and duties.</li>
+                        </ul>
+                      ">
+                View details
+              </button>
+            </div>
+
+            <div class="item">
+              <div class="d-flex flex-wrap justify-content-between">
+                <div class="fw-semibold">Assistant Lecturer · Rathmines College</div>
+                <div class="small-muted">2020 · 2 weeks</div>
+              </div>
+              <div class="small-muted mb-2">IT support · Admin support</div>
+              <button class="btn btn-sm btn-glow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#detailModal"
+                      data-title="Assistant Lecturer — Rathmines College"
+                      data-subtitle="2020 · 2 weeks"
+                      data-body="
+                        <ul>
+                          <li>Prepared mock exam papers and timetables.</li>
+                          <li>Installed software and performed maintenance tasks on college computers.</li>
+                          <li>Supported admin staff and reviewed exam paper grades.</li>
+                          <li>Printed/laminated/distributed health &amp; safety posters.</li>
+                        </ul>
+                      ">
+                View details
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">Education</h2>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">TU Dublin</div>
+                <div class="small-muted">2020 – Present</div>
+                <div>BSc (Hons) in Computing (Software Development)</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Rathmines College</div>
+                <div class="small-muted">2019 – 2020</div>
+                <div>QQI Level 5 in Computer Programming — Distinction</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="glass rounded-5 p-4 mb-4">
+          <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+            <h2 class="h4 fw-semibold mb-0">Projects</h2>
+            <span class="chip">Modal-powered case study</span>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-12">
+              <div class="glass rounded-4 p-3">
+                <div class="d-flex flex-wrap justify-content-between">
+                  <div class="fw-semibold">Vigilante Hideout — Django Website</div>
+                  <div class="small-muted">2022</div>
+                </div>
+                <div class="small-muted mb-2">Team of 4 · Class diagram · E-commerce features</div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="chip">Django</span>
+                  <span class="chip">UML</span>
+                  <span class="chip">Auth</span>
+                  <span class="chip">Cart/Checkout</span>
+                </div>
+                <div class="mt-3">
+                  <button class="btn btn-sm btn-glow"
+                          data-bs-toggle="modal"
+                          data-bs-target="#detailModal"
+                          data-title="Vigilante Hideout — Django Website"
+                          data-subtitle="2022 · Team project"
+                          data-body="
+                            <p>Built a hub for comic book enthusiasts with login, product browsing, cart, and purchasing.</p>
+                            <p><strong>Approach:</strong> Designed a user-focused class diagram before coding.</p>
+                            <p><strong>Challenge:</strong> Objectives were unclear due to communication issues.</p>
+                            <p><strong>Fix:</strong> Established regular team meetings to align direction.</p>
+                          ">
+                    Open case study
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">Technical skills</h2>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">C++</span>
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS</span>
+            <span class="chip">Bootstrap</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Django</span>
+            <span class="chip">MySQL / SQL</span>
+            <span class="chip">UML</span>
+            <span class="chip">Cisco Packet Tracer</span>
+            <span class="chip">Linux (Cloud Shell)</span>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Strengths</div>
+                <ul class="mb-0">
+                  <li>Analytical thinker, adaptable, quick learner</li>
+                  <li>Creative, detail-oriented, strong public speaking</li>
+                  <li>Project management & ICT skills</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Languages</div>
+                <ul class="mb-0">
+                  <li>Fluent: English, Slovak, Czech</li>
+                  <li>Tools: Microsoft Office + programming toolchains</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">Achievements & training</h2>
+          <ul class="mb-0">
+            <li>3rd place — TU Dublin President’s Sustainability Hackathon 2023 (Workday)</li>
+            <li>Hackathon — AWS & Tallaght University Hospital 2023</li>
+            <li>Junior Achievement Ireland Innovation Camp (Citigroup), 2017</li>
+            <li>Accenture Skills at Work Programme, 2016/2017</li>
+            <li>Advanced English Language Program (certified), 2013–2015</li>
+            <li>Organized Secondary School 100-Year Anniversary Celebration</li>
+            <li>“Queen of Readers” award — Vranov nad Topľou library (2013)</li>
+            <li>Fundraised for Pieta House & Marie Keating Foundation (2016)</li>
+            <li>Personal assistant supporting a visually & audibly impaired first-year student (TU Dublin)</li>
+          </ul>
+        </section>
+
+        <!-- MODULES -->
+        <section id="modules" class="glass rounded-5 p-4 mb-4">
+          <h2 class="h4 fw-semibold mb-3">Modules</h2>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Year 3</div>
+                <ul class="mb-0">
+                  <li>Cloud Services & Distributed Computing</li>
+                  <li>Data Structures & Algorithms</li>
+                  <li>Server-Side Web Dev</li>
+                  <li>Big Data Technologies</li>
+                  <li>Operating Systems</li>
+                  <li>Work Placement</li>
+                  <li>Data Analysis</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Year 2</div>
+                <ul class="mb-0">
+                  <li>Software Dev 3 & 4</li>
+                  <li>Software QA & Testing</li>
+                  <li>Advanced Databases</li>
+                  <li>Network Fundamentals</li>
+                  <li>Client-Side Web Dev</li>
+                  <li>Information Security</li>
+                  <li>Management Science</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="glass rounded-4 p-3">
+                <div class="fw-semibold">Year 1</div>
+                <ul class="mb-0">
+                  <li>Software Dev 1 & 2</li>
+                  <li>Discrete Maths 1</li>
+                  <li>UX / Visual Design</li>
+                  <li>Computer Architecture</li>
+                  <li>Business & Info Systems</li>
+                  <li>Systems Analysis</li>
+                  <li>Database Fundamentals</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOBBIES / INTERESTS -->
+        <section id="hobbies" class="glass rounded-5 p-4 mb-5">
+          <h2 class="h4 fw-semibold mb-3">Interests</h2>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="chip">History</span>
+            <span class="chip">Meditating</span>
+            <span class="chip">Reading</span>
+            <span class="chip">Public speaking</span>
+            <span class="chip">Art</span>
+            <span class="chip">Technological innovation</span>
+            <span class="chip">Poetry</span>
+            <span class="chip">Ladies soccer</span>
+            <span class="chip">Long walks</span>
+            <span class="chip">Light yoga</span>
+            <span class="chip">Hiking</span>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
-</div>
 
+  <!-- Toast container (W3Schools toast pattern) -->
+  <div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="liveToast" class="toast glass text-white" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-transparent text-white border-0">
+        <strong class="me-auto">Done</strong>
+        <small class="text-white-50">now</small>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toastBody">Copied.</div>
+    </div>
+  </div>
+
+  <!-- Reusable detail modal (W3Schools modal pattern) -->
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content glass rounded-5">
+        <div class="modal-header border-0">
+          <div>
+            <h5 class="modal-title fw-semibold" id="modalTitle">Title</h5>
+            <div class="small-muted" id="modalSubtitle">Subtitle</div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick intro modal -->
+  <div class="modal fade" id="quickIntroModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass rounded-5">
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-semibold">Quick intro</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-2"><strong>Diana Dargajova</strong> — Software Development Student at TU Dublin.</p>
+          <p class="mb-0 small-muted">
+            This page is built to feel like a story: start with your purpose, then experience, then proof (projects),
+            then depth (skills/modules). Tap any card to open full details.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ===== Modal: fill reusable modal with data-* attributes =====
+    const detailModal = document.getElementById('detailModal');
+    detailModal.addEventListener('show.bs.modal', (event) => {
+      const button = event.relatedTarget;
+      const title = button.getAttribute('data-title') || 'Details';
+      const subtitle = button.getAttribute('data-subtitle') || '';
+      const body = button.getAttribute('data-body') || '';
+
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalSubtitle').textContent = subtitle;
+      document.getElementById('modalBody').innerHTML = body;
+    });
+
+    // ===== Toast: show notifications (W3Schools toast close pattern) =====
+    const toastEl = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastEl, { delay: 2200 });
+
+    function showToast(message){
+      document.getElementById('toastBody').textContent = message;
+      toast.show();
+    }
+
+    async function copyText(text, label){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast(label + " copied ✅");
+      } catch (e){
+        showToast("Copy failed — your browser blocked it.");
+      }
+    }
+
+    document.getElementById('btnCopyEmail').addEventListener('click', () => {
+      const email = document.getElementById('emailText').textContent.trim();
+      copyText(email, "Email");
+    });
+
+    document.getElementById('btnCopyPhone').addEventListener('click', () => {
+      const phone = document.getElementById('phoneText').textContent.trim();
+      copyText(phone, "Phone");
+    });
+  </script>
 </body>
 </html>
