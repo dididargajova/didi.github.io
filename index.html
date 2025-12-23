@@ -1,27 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My First Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diana Dargajova - Portfolio</title>
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="60" class="bg-dark text-light" tabindex="0">
 
-  <div class="container text-center mt-5">
-    <h1 class="mb-3">Hello, world 👋</h1>
-    <p class="lead">
-      This is my first website hosted for free on GitHub Pages.
-    </p>
+  <!-- Navigation Bar -->
+  <nav id="navbar-main" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#home">Diana Dargajova</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Work Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills & Achievements</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies & Interests</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="credits.html" target="_blank">Credits</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <a href="#" class="btn btn-primary mt-3">
-      Click me
-    </a>
-  </div>
+  <!-- Hero Section -->
+  <section id="home" class="min-vh-100 d-flex align-items-center justify-content-center text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Diana Dargajova</h1>
+      <p class="lead">Aspiring Software Developer & Computing Student</p>
+    </div>
+  </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- About Me Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">About Me</h2>
+      <p>
+        An ambitious and adaptable professional with a strong passion for business and technology, eager to gain valuable industry experience while bringing fresh, innovative ideas to organizations. I have always aspired to build a career in business, combining my analytical mindset with creative problem-solving to drive impactful results.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-5 bg-secondary text-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Education</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <!-- Degree Card -->
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body">
+              <h5 class="card-title">B.Sc. (Hons) in Computing with Software Development</h5>
+              <p class="card-text">Technological University Dublin, 2020 - Present</p>
+              <a class="btn btn-outline-light btn-sm" data-bs-toggle="collapse" href="#yearModules" role="button" aria-expanded="false" aria-controls="yearModules">
+                View Modules & Grades
+              </a>
+              <div class="collapse mt-3" id="yearModules">
+                <div class="card card-body bg-secondary text-light">
+                  <h6>Year 1 (2020/21)</h6>
+                  <ul class="mb-2">
+                    <li>Software Development 1 – Grade B</li>
+                    <li>Discrete Mathematics 1 – Grade B+</li>
+                    <li>Visual Design & User Experience – Grade B</li>
+                    <li>Critical Skills Development – Grade B-</li>
+                    <li>Computer Architecture – Grade B-</li>
+                    <li>Business & Information Systems – Grade B+</li>
+                    <li>Software Development 2 – Grade C</li>
+                    <li>Systems Analysis – Grade B+</li>
+                    <li>Database Fundamentals – Grade C+</li>
+                    <li>Statistics – Grade B+</li>
+                    <li>Operating Systems Fundamentals – Grade C</li>
+                    <li>Social Media Communications – Grade C</li>
+                  </ul>
+                  <h6>Year 2 (2021/22)</h6>
+                  <ul class="mb-2">
+                    <li>Software Development 3 – Grade A</li>
+                    <li>Software Quality Assurance & Testing – Grade B</li>
+                    <li>Advanced Database Technologies – Grade A</li>
+                    <li>Network Fundamentals – Grade B+</li>
+                    <li>Client-Side Web Development – Grade B+</li>
+                    <li>Discrete Mathematics 2 – Grade B+</li>
+                    <li>Software Development 4 – Grade B+</li>
+                    <li>Project – Grade B</li>
+                    <li>Data Administration & Analysis – Grade B</li>
+                    <li>Routing & Switching Essentials – Grade B+</li>
+                    <li>Information Security – Grade B</li>
+                    <li>Management Science – Grade B+</li>
+                  </ul>
+                  <h6>Year 3 (2022/23)</h6>
+                  <ul class="mb-2">
+                    <li>Cloud Services & Distributed Computing – Grade B</li>
+                    <li>Data Structures & Algorithms – Grade A</li>
+                    <li>Server-Side Web Development – Grade B+</li>
+                    <li>Big Data Technologies – Grade B+</li>
+                    <li>Operating Systems – Grade B+</li>
+                    <li>Work Placement (Mastercard Internship) – Completed</li>
+                    <li>Data Analysis – Grade B+</li>
+                  </ul>
+                  <h6>Year 4 (2023/24)</h6>
+                  <p>Currently completing final year with a capstone project in progress.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Certification Card -->
+          <div class="card bg-dark text-light">
+            <div class="card-body">
+              <h5 class="card-title">QQI Level 5 Certificate in Computer Programming</h5>
+              <p class="card-text">Rathmines College, 2019 - 2020</p>
+              <p class="card-text">Awarded with Distinction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Projects</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Vigilante Hideout Django Website (2022)</h5>
+              <p class="card-text">
+                A team project developing a community hub for comic book enthusiasts using Django. Features included user authentication, product browsing, shopping cart, and purchase functionality. Overcame challenges in unclear requirements by establishing regular team meetings and improved communication.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card bg-dark text-light mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Sustainability Hackathon Prototype (2023)</h5>
+              <p class="card-text">
+                Developed a prototype in a 24-hour hackathon focused on sustainability challenges, resulting in a 3rd place award at the TU Dublin President’s Sustainability Hackathon 2023 (sponsored by Workday).
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Projects Carousel -->
+        <div class="col-12">
+          <div id="projectCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                  <div class="card bg-secondary text-light">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 1: Vigilante Hideout</h5>
+                      <p class="card-text">Django web application for comic enthusiasts (2022).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="card bg-secondary text-light">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 2: Sustainability Prototype</h5>
+                      <p class="card-text">Hackathon project on sustainability (2023).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="card bg-secondary text-light">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 3: Final Year Capstone</h5>
+                      <p class="card-text">Capstone project in progress (2024).</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section id="experience" class="py-5 bg-secondary text-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item mb-5">
+          <h5>Software Developer Intern – Mastercard</h5>
+          <p class="mb-1"><em>Jan 2024 – Jun 2024</em></p>
+          <ul>
+            <li>Developed and maintained software solutions supporting global payment systems.</li>
+            <li>Collaborated with cross-functional teams to design, implement, and test new features.</li>
+            <li>Debugged and optimized code to enhance performance and reliability.</li>
+            <li>Participated in code reviews and agile development processes.</li>
+          </ul>
+        </div>
+        <div class="timeline-item mb-5">
+          <h5>Student Ambassador/Tutor – TU Dublin</h5>
+          <p class="mb-1"><em>2023 – 2024</em></p>
+          <ul>
+            <li>Provided year-round student services, including campus orientation tours for students and parents.</li>
+            <li>Assisted in organizing the university’s Sports and Societies Festival.</li>
+            <li>Welcomed and guided first-year students at campus reception, addressing their inquiries.</li>
+            <li>Supported administrative staff with various tasks and events.</li>
+          </ul>
+        </div>
+        <div class="timeline-item mb-5">
+          <h5>Assistant Lecturer – Rathmines College</h5>
+          <p class="mb-1"><em>2-week Placement in 2020</em></p>
+          <ul>
+            <li>Helped prepare mock exam papers and timetables.</li>
+            <li>Installed software and performed maintenance on classroom computers.</li>
+            <li>Assisted administrative staff with daily tasks and student records management.</li>
+            <li>Reviewed exam results and organized educational materials.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Achievements Section -->
+  <section id="skills" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Skills & Achievements</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5>Technical Skills</h5>
+          <p>Proficient in:</p>
+          <ul class="list-inline">
+            <li class="list-inline-item badge bg-secondary m-1">Python</li>
+            <li class="list-inline-item badge bg-secondary m-1">Java</li>
+            <li class="list-inline-item badge bg-secondary m-1">C++</li>
+            <li class="list-inline-item badge bg-secondary m-1">HTML5/CSS3</li>
+            <li class="list-inline-item badge bg-secondary m-1">JavaScript</li>
+            <li class="list-inline-item badge bg-secondary m-1">Django</li>
+            <li class="list-inline-item badge bg-secondary m-1">UML</li>
+            <li class="list-inline-item badge bg-secondary m-1">SQL/MySQL</li>
+            <li class="list-inline-item badge bg-secondary m-1">Cisco Networking</li>
+            <li class="list-inline-item badge bg-secondary m-1">Linux CLI</li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h5>Achievements & Training</h5>
+          <ul>
+            <li>3rd Place – TU Dublin President’s Sustainability Hackathon 2023 (Workday).</li>
+            <li>Participant – AWS & Tallaght University Hospital Hackathon 2023.</li>
+            <li>Participant – Citigroup Junior Achievement Innovation Camp 2017.</li>
+            <li>Accenture Skills at Work Programme (2016/2017).</li>
+            <li>Organized Secondary School 100-Year Anniversary Event.</li>
+            <li>"Queen of Readers" Award, Vranov nad Topľou Library (2013).</li>
+            <li>Advanced English Language Certificate (2015).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies & Interests Section -->
+  <section id="hobbies" class="py-5 bg-secondary text-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Hobbies & Interests</h2>
+      <div class="row text-center">
+        <div class="col-md-3 mb-4">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">History & Art</h5>
+              <p class="card-text">Enjoys exploring history and art, visiting museums and galleries.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">Reading & Poetry</h5>
+              <p class="card-text">Avid reader of literature and poetry, with a passion for creative writing.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">Yoga & Hiking</h5>
+              <p class="card-text">Practices light yoga and enjoys hiking and long walks for relaxation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4">
+          <div class="card bg-dark text-light h-100">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h5 class="card-title">Public Speaking</h5>
+              <p class="card-text">Active in public speaking and continually honing communication skills.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container text-center">
+      <h2 class="mb-4">Contact Me</h2>
+      <p>If you'd like to get in touch, feel free to reach out!</p>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Me</button>
+      <!-- Contact Modal -->
+      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactModalLabel">Contact Me</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Tabs for Info and Message -->
+              <ul class="nav nav-tabs mb-3" role="tablist">
+                <li class="nav-item">
+                  <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#infoTabPane" type="button" role="tab" aria-controls="infoTabPane" aria-selected="true">Info</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-link" id="form-tab" data-bs-toggle="tab" data-bs-target="#formTabPane" type="button" role="tab" aria-controls="formTabPane" aria-selected="false">Message</button>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="infoTabPane" role="tabpanel" aria-labelledby="info-tab">
+                  <p><strong>Email:</strong> dargajova@outlook.com</p>
+                  <p><strong>Phone:</strong> +353 89 2323 969</p>
+                  <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dianadargajova" target="_blank" class="text-light">dianadargajova</a></p>
+                  <p><strong>Location:</strong> Dublin 24, Ireland</p>
+                </div>
+                <div class="tab-pane fade" id="formTabPane" role="tabpanel" aria-labelledby="form-tab">
+                  <form>
+                    <div class="mb-3 text-start">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3 text-start">
+                      <label for="emailInput" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="emailInput" placeholder="your.email@example.com">
+                    </div>
+                    <div class="mb-3 text-start">
+                      <label for="message" class="form-label">Message</label>
+                      <textarea class="form-control" id="message" rows="3" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-success w-100" data-bs-dismiss="modal" onclick="alert('Thank you for reaching out!')">Send Message</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS (Bundle with Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialize Bootstrap's ScrollSpy
+    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+      target: '#navbar-main'
+    });
+  </script>
 </body>
 </html>
