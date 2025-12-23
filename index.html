@@ -1,69 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap ScrollSpy Footer</title>
+  <title>One Page CV Flow</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <style>
-    body {
-      position: relative;
-      padding-bottom: 56px;
-    }
-  </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="56" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#footerNav" data-bs-offset="80" tabindex="0" class="bg-body">
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
-  <div class="container-fluid justify-content-center">
-    <ul class="navbar-nav flex-row gap-3">
-      <li class="nav-item">
-        <a class="nav-link" href="#section1">Section 1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#section2">Section 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#section3">Section 3</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#section4">Section 4</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#section5">Section 5</a>
-      </li>
-    </ul>
+  <!-- CONTENT -->
+  <div class="container py-5 mb-5">
+
+    <!-- 1) HERO -->
+    <div id="start" class="min-vh-100 d-flex align-items-center">
+      <div class="w-100 text-center">
+        <p class="text-uppercase small text-secondary mb-2">CV</p>
+        <h1 class="display-4 fw-bold mb-3">Diana Dargajova</h1>
+        <p class="lead mb-4">Software Development Student · Internship Experience · Projects · Skills</p>
+
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+          <a class="btn btn-dark btn-lg" href="#story">Scroll</a>
+          <a class="btn btn-outline-dark btn-lg" href="#contact">Contact</a>
+        </div>
+
+        <p class="text-secondary mt-4 mb-0">Tip: use the bottom bar to jump smoothly.</p>
+      </div>
+    </div>
+
+    <!-- 2) STORY (About) -->
+    <div id="story" class="min-vh-100 d-flex align-items-center">
+      <div class="w-100">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <p class="text-uppercase small text-secondary mb-2">Story</p>
+            <h2 class="display-6 fw-semibold mb-3">Who I am</h2>
+            <p class="lead mb-4">
+              An ambitious and adaptable professional with a strong passion for business and technology,
+              eager to gain valuable industry experience while bringing fresh, innovative ideas to your organization.
+            </p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+              <span class="badge text-bg-dark p-2">Analytical</span>
+              <span class="badge text-bg-dark p-2">Creative</span>
+              <span class="badge text-bg-dark p-2">Adaptable</span>
+              <span class="badge text-bg-dark p-2">Public speaking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) PROOF (Experience) -->
+    <div id="proof" class="min-vh-100 d-flex align-items-center">
+      <div class="w-100">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="text-center mb-4">
+              <p class="text-uppercase small text-secondary mb-2">Proof</p>
+              <h2 class="display-6 fw-semibold mb-0">Experience</h2>
+            </div>
+
+            <div class="accordion" id="expAcc">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#exp1">
+                    Mastercard — Software Developer Intern (2024 · 6 months)
+                  </button>
+                </h2>
+                <div id="exp1" class="accordion-collapse collapse show" data-bs-parent="#expAcc">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Developed and maintained software solutions supporting global payment systems.</li>
+                      <li>Collaborated with teams to design, implement, and test features.</li>
+                      <li>Debugging/optimization to improve performance and reliability.</li>
+                      <li>Worked in agile methodology and code reviews.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp2">
+                    TU Dublin — Student Ambassador/Tutor (2023–2024)
+                  </button>
+                </h2>
+                <div id="exp2" class="accordion-collapse collapse" data-bs-parent="#expAcc">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Supported Student Services and ran orientation tours.</li>
+                      <li>Helped manage Sports & Societies Festival.</li>
+                      <li>Guided first-year students and supported reception.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exp3">
+                    Rathmines College — Assistant Lecturer (2020 · 2 weeks)
+                  </button>
+                </h2>
+                <div id="exp3" class="accordion-collapse collapse" data-bs-parent="#expAcc">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>Prepared mock exam papers and timetables.</li>
+                      <li>Installed software and maintained college computers.</li>
+                      <li>Reviewed grades and supported admin tasks.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- accordion -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4) BUILD (Projects + Skills) -->
+    <div id="build" class="min-vh-100 d-flex align-items-center">
+      <div class="w-100">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="text-center mb-4">
+              <p class="text-uppercase small text-secondary mb-2">Build</p>
+              <h2 class="display-6 fw-semibold mb-0">Projects & Skills</h2>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title mb-1">Vigilante Hideout</h5>
+                    <p class="text-secondary mb-3">Django Website · 2022 · Team of 4</p>
+                    <ul class="mb-3">
+                      <li>Login + user features</li>
+                      <li>Products + cart + purchasing</li>
+                      <li>Designed class diagram before coding</li>
+                    </ul>
+                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#projectModal">
+                      Open details
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title mb-2">Core Skills</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                      <span class="badge text-bg-dark p-2">Python</span>
+                      <span class="badge text-bg-dark p-2">Java</span>
+                      <span class="badge text-bg-dark p-2">C++</span>
+                      <span class="badge text-bg-dark p-2">HTML</span>
+                      <span class="badge text-bg-dark p-2">CSS</span>
+                      <span class="badge text-bg-dark p-2">Bootstrap</span>
+                      <span class="badge text-bg-dark p-2">JavaScript</span>
+                      <span class="badge text-bg-dark p-2">Django</span>
+                      <span class="badge text-bg-dark p-2">SQL</span>
+                    </div>
+                    <hr>
+                    <p class="mb-0 text-secondary">Click “Contact” in the footer bar to finish the story.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- row -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5) CONTACT -->
+    <div id="contact" class="min-vh-100 d-flex align-items-center">
+      <div class="w-100 text-center">
+        <p class="text-uppercase small text-secondary mb-2">Contact</p>
+        <h2 class="display-6 fw-semibold mb-3">Let’s talk</h2>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap mb-3">
+          <button class="btn btn-dark btn-lg" id="copyEmail">Copy email</button>
+          <button class="btn btn-outline-dark btn-lg" id="copyPhone">Copy phone</button>
+        </div>
+
+        <p class="lead mb-1" id="emailText">dargajova@outlook.com</p>
+        <p class="lead mb-0" id="phoneText">+353 89 2323 969</p>
+      </div>
+    </div>
+
+  </div><!-- container -->
+
+  <!-- FOOTER NAV (ScrollSpy) -->
+  <nav id="footerNav" class="navbar navbar-dark bg-dark fixed-bottom">
+    <div class="container justify-content-center">
+      <ul class="navbar-nav flex-row gap-3">
+        <li class="nav-item"><a class="nav-link" href="#start">Start</a></li>
+        <li class="nav-item"><a class="nav-link" href="#story">Story</a></li>
+        <li class="nav-item"><a class="nav-link" href="#proof">Proof</a></li>
+        <li class="nav-item"><a class="nav-link" href="#build">Build</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MODAL (Bootstrap tool) -->
+  <div class="modal fade" id="projectModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Vigilante Hideout — Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-2"><strong>Goal:</strong> Comic enthusiast hub with auth, browsing, cart and purchasing.</p>
+          <p class="mb-2"><strong>Process:</strong> Class diagram first, then implementation.</p>
+          <p class="mb-0"><strong>Team:</strong> Regular meetings fixed unclear requirements.</p>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
 
-<div id="section1" class="container-fluid bg-success text-white" style="padding:100px 20px;">
-  <h1>Section 1</h1>
-  <p>Scroll and watch the footer update.</p>
-</div>
+  <!-- TOAST (Bootstrap tool) -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Copied</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body" id="toastBody">Done.</div>
+    </div>
+  </div>
 
-<div id="section2" class="container-fluid bg-warning" style="padding:100px 20px;">
-  <h1>Section 2</h1>
-  <p>The footer links highlight correctly.</p>
-</div>
+  <script>
+    // Smooth scroll WITHOUT CSS
+    document.querySelectorAll('a.nav-link[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const el = document.querySelector(a.getAttribute('href'));
+        if (!el) return;
+        window.scrollTo({ top: el.offsetTop - 20, behavior: 'smooth' });
+      });
+    });
 
-<div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-  <h1>Section 3</h1>
-  <p>This is now a bottom ScrollSpy nav.</p>
-</div>
+    // Toast helpers
+    const toastEl = document.getElementById('liveToast');
+    const toast = new bootstrap.Toast(toastEl, { delay: 1800 });
+    const toastBody = document.getElementById('toastBody');
 
-<div id="section4" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-  <h1>Section 4</h1>
-  <p>This is now a bottom ScrollSpy nav.</p>
-</div>
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        toastBody.textContent = "Copied: " + text;
+        toast.show();
+      }catch(err){
+        toastBody.textContent = "Copy blocked by browser.";
+        toast.show();
+      }
+    }
 
-<div id="section5" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
-  <h1>Section 5</h1>
-  <p>This is now a bottom ScrollSpy nav.</p>
-</div>
+    document.getElementById('copyEmail').addEventListener('click', () => {
+      copyText(document.getElementById('emailText').textContent.trim());
+    });
+    document.getElementById('copyPhone').addEventListener('click', () => {
+      copyText(document.getElementById('phoneText').textContent.trim());
+    });
+
+    // Make sure ScrollSpy recalculates
+    bootstrap.ScrollSpy.getOrCreateInstance(document.body).refresh();
+  </script>
 
 </body>
 </html>
