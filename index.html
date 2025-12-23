@@ -1,126 +1,374 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diana Dargajova - Portfolio</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="styles.css" rel="stylesheet">
-</head>
-<body data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-offset="60" class="bg-dark text-light" tabindex="0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diana Dargajova • Interactive CV</title>
 
-  <!-- Navigation Bar -->
-  <nav id="navbar-main" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#home">Diana Dargajova</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons (icons only, optional but nice) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
+
+  <!-- Top progress bar (JS) -->
+  <div id="readProgress" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-blur fixed-top border-bottom border-white border-opacity-10">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <span class="brand-dot"></span>
+        <span class="fw-semibold">Diana Dargajova</span>
+        <span class="badge rounded-pill text-bg-info ms-2 d-none d-sm-inline">Interactive CV</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navCanvas" aria-controls="navCanvas">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Work Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills & Achievements</a></li>
-          <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies & Interests</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="credits.html" target="_blank">Credits</a></li>
+          <li class="nav-item"><a class="nav-link" href="credits.html">Credits</a></li>
+          <li class="nav-item ms-lg-2">
+            <button class="btn btn-sm btn-outline-light" id="openContactBtn" data-bs-toggle="modal" data-bs-target="#contactModal">
+              <i class="bi bi-envelope"></i> Quick Contact
+            </button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-vh-100 d-flex align-items-center justify-content-center text-center">
-    <div class="container">
-      <h1 class="display-4 fw-bold">Diana Dargajova</h1>
-      <p class="lead">Aspiring Software Developer & Computing Student</p>
+  <!-- Offcanvas nav (mobile) -->
+  <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="navCanvas" aria-labelledby="navCanvasLabel">
+    <div class="offcanvas-header border-bottom border-white border-opacity-10">
+      <h5 class="offcanvas-title" id="navCanvasLabel">Navigate</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
-  </section>
-
-  <!-- About Me Section -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">About Me</h2>
-      <p>
-        An ambitious and adaptable professional with a strong passion for business and technology, eager to gain valuable industry experience while bringing fresh, innovative ideas to organizations. I have always aspired to build a career in business, combining my analytical mindset with creative problem-solving to drive impactful results.
-      </p>
+    <div class="offcanvas-body">
+      <div class="d-grid gap-2">
+        <a class="btn btn-outline-light" href="#about" data-bs-dismiss="offcanvas">About</a>
+        <a class="btn btn-outline-light" href="#education" data-bs-dismiss="offcanvas">Education</a>
+        <a class="btn btn-outline-light" href="#projects" data-bs-dismiss="offcanvas">Projects</a>
+        <a class="btn btn-outline-light" href="#experience" data-bs-dismiss="offcanvas">Experience</a>
+        <a class="btn btn-outline-light" href="#skills" data-bs-dismiss="offcanvas">Skills</a>
+        <a class="btn btn-outline-light" href="#hobbies" data-bs-dismiss="offcanvas">Hobbies</a>
+        <a class="btn btn-outline-light" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
+        <a class="btn btn-outline-info" href="credits.html">Credits page</a>
+      </div>
+      <hr class="border-white border-opacity-10 my-4">
+      <button class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#contactModal" data-bs-dismiss="offcanvas">
+        <i class="bi bi-envelope-paper"></i> Open Contact Modal
+      </button>
     </div>
-  </section>
+  </div>
 
-  <!-- Education Section -->
-  <section id="education" class="py-5 bg-secondary text-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Education</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <!-- Degree Card -->
-          <div class="card bg-dark text-light mb-4">
-            <div class="card-body">
-              <h5 class="card-title">B.Sc. (Hons) in Computing with Software Development</h5>
-              <p class="card-text">Technological University Dublin, 2020 - Present</p>
-              <a class="btn btn-outline-light btn-sm" data-bs-toggle="collapse" href="#yearModules" role="button" aria-expanded="false" aria-controls="yearModules">
-                View Modules & Grades
+  <!-- HERO -->
+  <header id="home" class="hero-section">
+    <div class="hero-bg">
+      <span class="blob blob-a"></span>
+      <span class="blob blob-b"></span>
+      <span class="gridline"></span>
+    </div>
+
+    <div class="container position-relative">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="reveal">
+            <p class="text-uppercase text-info fw-semibold letterspace mb-2">Software Development Student</p>
+            <h1 class="display-4 fw-bold mb-3">
+              Diana <span class="text-gradient">Dargajova</span>
+            </h1>
+
+            <p class="lead text-secondary-emphasis mb-4">
+              <span id="typeLine" class="type-line"></span>
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#projects" class="btn btn-info btn-lg">
+                <i class="bi bi-stars"></i> View Portfolio
               </a>
-              <div class="collapse mt-3" id="yearModules">
-                <div class="card card-body bg-secondary text-light">
-                  <h6>Year 1 (2020/21)</h6>
-                  <ul class="mb-2">
-                    <li>Software Development 1 – Grade B</li>
-                    <li>Discrete Mathematics 1 – Grade B+</li>
-                    <li>Visual Design & User Experience – Grade B</li>
-                    <li>Critical Skills Development – Grade B-</li>
-                    <li>Computer Architecture – Grade B-</li>
-                    <li>Business & Information Systems – Grade B+</li>
-                    <li>Software Development 2 – Grade C</li>
-                    <li>Systems Analysis – Grade B+</li>
-                    <li>Database Fundamentals – Grade C+</li>
-                    <li>Statistics – Grade B+</li>
-                    <li>Operating Systems Fundamentals – Grade C</li>
-                    <li>Social Media Communications – Grade C</li>
+              <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#cvModal">
+                <i class="bi bi-file-earmark-person"></i> CV Snapshot
+              </button>
+              <a href="#contact" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-send"></i> Contact
+              </a>
+            </div>
+
+            <div class="mt-4 d-flex flex-wrap gap-3 small text-secondary">
+              <span><i class="bi bi-geo-alt"></i> Dublin 24 (Eircode: D24 HD70)</span>
+              <span><i class="bi bi-telephone"></i> +353 89 2323 969</span>
+              <span><i class="bi bi-at"></i> dargajova@outlook.com</span>
+              <span><i class="bi bi-linkedin"></i> in/dianadargajova</span>
+            </div>
+
+            <div class="mt-4 glass p-3 d-flex align-items-center gap-3 reveal delay-1">
+              <div class="pulse-ring"><span class="pulse-dot"></span></div>
+              <div class="small">
+                <div class="fw-semibold">Live highlight</div>
+                <div class="text-secondary" id="liveHighlight">Loading…</div>
+              </div>
+              <div class="ms-auto">
+                <span class="badge text-bg-success" id="statusBadge">Open to opportunities</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="reveal delay-1">
+            <div class="profile-card glass p-4">
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar-wrap">
+                  <!-- Put your photo here -->
+                  <img src="assets/img/profile.jpg" class="avatar" alt="Portrait of Diana">
+                </div>
+                <div>
+                  <div class="h5 mb-1">Diana Dargajova</div>
+                  <div class="text-secondary small">BSc (Hons) Computing • TU Dublin</div>
+                </div>
+              </div>
+
+              <hr class="border-white border-opacity-10 my-4">
+
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="stat-num" data-count="6">0</div>
+                    <div class="stat-label">Months @ Mastercard</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat">
+                    <div class="stat-num" data-count="2">0</div>
+                    <div class="stat-label">Major Education Awards</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="small text-secondary">
+                    Quick links:
+                    <a class="link-info link-underline link-underline-opacity-0" href="mailto:dargajova@outlook.com">Email</a> •
+                    <a class="link-info link-underline link-underline-opacity-0" target="_blank" rel="noreferrer"
+                      href="https://linkedin.com/in/dianadargajova">LinkedIn</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 d-flex gap-2">
+                <button class="btn btn-outline-light w-100" data-bs-toggle="tooltip" data-bs-title="Scrollspy + Smooth scroll">
+                  <i class="bi bi-compass"></i> UX-first
+                </button>
+                <button class="btn btn-outline-light w-100" data-bs-toggle="tooltip" data-bs-title="Animations respect prefers-reduced-motion">
+                  <i class="bi bi-universal-access"></i> Accessible
+                </button>
+              </div>
+            </div>
+
+            <p class="small text-secondary mt-3 mb-0 text-center">
+              Built with Bootstrap + custom CSS + custom JavaScript (for CA dynamic content).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <div class="col-lg-4">
+          <div class="sticky-lg-top" style="top: 110px;">
+            <h2 class="section-title reveal">About</h2>
+            <p class="text-secondary reveal delay-1">
+              A quick, employer-friendly summary that still feels like you.
+            </p>
+
+            <div class="glass p-3 reveal delay-2">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="small text-secondary">Profile strength</div>
+                <div class="small fw-semibold" id="profileScore">—</div>
+              </div>
+              <div class="progress mt-2" role="progressbar" aria-label="Profile strength">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" id="profileBar" style="width: 0%"></div>
+              </div>
+              <div class="small text-secondary mt-2">
+                Calculated live from sections completed (JS).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="glass p-4 reveal">
+            <p class="mb-0">
+              An ambitious and adaptable professional with a strong passion for business and technology,
+              eager to gain valuable industry experience while bringing fresh, innovative ideas to an organization.
+              I aspire to build a career combining an analytical mindset with creative problem-solving to drive impactful results.
+            </p>
+            <hr class="border-white border-opacity-10 my-4">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="mini-card">
+                  <div class="mini-title"><i class="bi bi-lightning-charge"></i> Strengths</div>
+                  <ul class="mb-0 text-secondary">
+                    <li>Analytical thinker • adaptable • quick learner</li>
+                    <li>Creative problem-solving + public speaking</li>
+                    <li>Detail-oriented with project focus</li>
                   </ul>
-                  <h6>Year 2 (2021/22)</h6>
-                  <ul class="mb-2">
-                    <li>Software Development 3 – Grade A</li>
-                    <li>Software Quality Assurance & Testing – Grade B</li>
-                    <li>Advanced Database Technologies – Grade A</li>
-                    <li>Network Fundamentals – Grade B+</li>
-                    <li>Client-Side Web Development – Grade B+</li>
-                    <li>Discrete Mathematics 2 – Grade B+</li>
-                    <li>Software Development 4 – Grade B+</li>
-                    <li>Project – Grade B</li>
-                    <li>Data Administration & Analysis – Grade B</li>
-                    <li>Routing & Switching Essentials – Grade B+</li>
-                    <li>Information Security – Grade B</li>
-                    <li>Management Science – Grade B+</li>
-                  </ul>
-                  <h6>Year 3 (2022/23)</h6>
-                  <ul class="mb-2">
-                    <li>Cloud Services & Distributed Computing – Grade B</li>
-                    <li>Data Structures & Algorithms – Grade A</li>
-                    <li>Server-Side Web Development – Grade B+</li>
-                    <li>Big Data Technologies – Grade B+</li>
-                    <li>Operating Systems – Grade B+</li>
-                    <li>Work Placement (Mastercard Internship) – Completed</li>
-                    <li>Data Analysis – Grade B+</li>
-                  </ul>
-                  <h6>Year 4 (2023/24)</h6>
-                  <p>Currently completing final year with a capstone project in progress.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mini-card">
+                  <div class="mini-title"><i class="bi bi-translate"></i> Languages</div>
+                  <div class="d-flex flex-wrap gap-2 mt-2">
+                    <span class="badge text-bg-secondary">English</span>
+                    <span class="badge text-bg-secondary">Slovak</span>
+                    <span class="badge text-bg-secondary">Czech</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Certification Card -->
-          <div class="card bg-dark text-light">
-            <div class="card-body">
-              <h5 class="card-title">QQI Level 5 Certificate in Computer Programming</h5>
-              <p class="card-text">Rathmines College, 2019 - 2020</p>
-              <p class="card-text">Awarded with Distinction</p>
+
+          <div class="mt-4 reveal delay-1">
+            <div class="accordion glass" id="aboutAccordion">
+              <div class="accordion-item bg-transparent border-0">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    What I bring to a team (quick summary)
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body text-secondary">
+                    I collaborate well, communicate clearly, and I’m comfortable taking ownership of tasks.
+                    I also enjoy improving processes (documentation, quality, testing, clean code) and learning fast in new environments.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item bg-transparent border-0 border-top border-white border-opacity-10">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed bg-transparent text-light" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    Dynamic feature used here (CA requirement)
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body text-secondary">
+                    This site uses JavaScript (separate from Bootstrap) for:
+                    scroll reveal, live profile strength calculation, animated counters,
+                    grade filtering & GPA estimate, and toast notifications.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section-pad section-alt">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="section-title reveal">Education</h2>
+          <p class="text-secondary reveal delay-1 mb-0">
+            Modules + grades included (with interactive filtering).
+          </p>
+        </div>
+
+        <div class="reveal delay-2 d-flex gap-2">
+          <select id="yearFilter" class="form-select form-select-sm w-auto">
+            <option value="all" selected>All years</option>
+            <option value="1">Year 1</option>
+            <option value="2">Year 2</option>
+            <option value="3">Year 3</option>
+          </select>
+          <button class="btn btn-sm btn-outline-light" id="calcGpaBtn">
+            <i class="bi bi-calculator"></i> Estimate Avg
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="glass p-4 reveal">
+            <div class="d-flex align-items-start justify-content-between gap-3">
+              <div>
+                <div class="h5 mb-1">TU Dublin</div>
+                <div class="text-secondary">BSc (Hons) Computing with Software Development</div>
+                <div class="text-secondary small mt-2">2020 – Present</div>
+              </div>
+              <span class="badge text-bg-info">Primary</span>
+            </div>
+            <hr class="border-white border-opacity-10 my-3">
+            <div class="small text-secondary">
+              Key areas: web dev, databases, networking, systems, data analysis, software engineering.
+            </div>
+          </div>
+
+          <div class="glass p-4 reveal delay-1 mt-4">
+            <div class="d-flex align-items-start justify-content-between gap-3">
+              <div>
+                <div class="h5 mb-1">Rathmines College</div>
+                <div class="text-secondary">QQI Level 5 Computer Programming</div>
+                <div class="text-secondary small mt-2">2019 – 2020</div>
+              </div>
+              <span class="badge text-bg-success">Distinction</span>
+            </div>
+          </div>
+
+          <div class="glass p-4 reveal delay-2 mt-4">
+            <div class="small text-secondary">Estimated average (filtered)</div>
+            <div class="display-6 fw-bold" id="gpaOut">—</div>
+            <div class="small text-secondary" id="gpaHint">Click “Estimate Avg”.</div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="glass p-4 reveal">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div class="h5 mb-0">Modules & Grades</div>
+              <span class="badge text-bg-secondary" id="moduleCount">0 modules</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-dark table-hover align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th style="min-width: 220px;">Module</th>
+                    <th style="width: 90px;">Year</th>
+                    <th style="width: 90px;">Grade</th>
+                    <th style="min-width: 170px;">Notes</th>
+                  </tr>
+                </thead>
+                <tbody id="modulesTbody">
+                  <!-- JS injects rows -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mt-3 small text-secondary">
+              Dynamic: filter by year + average estimate computed in JavaScript.
             </div>
           </div>
         </div>
@@ -128,265 +376,618 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-5">
+  <!-- PROJECTS -->
+  <section id="projects" class="section-pad">
     <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card bg-dark text-light mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Vigilante Hideout Django Website (2022)</h5>
-              <p class="card-text">
-                A team project developing a community hub for comic book enthusiasts using Django. Features included user authentication, product browsing, shopping cart, and purchase functionality. Overcame challenges in unclear requirements by establishing regular team meetings and improved communication.
-              </p>
-            </div>
-          </div>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="section-title reveal">Projects</h2>
+          <p class="text-secondary reveal delay-1 mb-0">
+            Click a card for details (modal). Carousel shows highlights.
+          </p>
         </div>
-        <div class="col-md-6">
-          <div class="card bg-dark text-light mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Sustainability Hackathon Prototype (2023)</h5>
-              <p class="card-text">
-                Developed a prototype in a 24-hour hackathon focused on sustainability challenges, resulting in a 3rd place award at the TU Dublin President’s Sustainability Hackathon 2023 (sponsored by Workday).
-              </p>
-            </div>
-          </div>
+
+        <div class="reveal delay-2 d-flex gap-2">
+          <input id="projectSearch" class="form-control form-control-sm w-auto" placeholder="Search projects…" />
+          <button class="btn btn-sm btn-outline-light" id="resetProjectSearch">
+            Reset
+          </button>
         </div>
-        <!-- Projects Carousel -->
-        <div class="col-12">
-          <div id="projectCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
-            <div class="carousel-inner">
+      </div>
+
+      <div class="row g-4" id="projectGrid">
+        <!-- Project cards injected by JS -->
+      </div>
+
+      <div class="mt-5 reveal delay-1">
+        <div class="glass p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="h5 mb-0">Project Highlights</div>
+            <div class="small text-secondary">Bootstrap Carousel</div>
+          </div>
+
+          <div id="projCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#projCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#projCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#projCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner rounded-4 overflow-hidden">
               <div class="carousel-item active">
-                <div class="d-flex justify-content-center">
-                  <div class="card bg-secondary text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Project 1: Vigilante Hideout</h5>
-                      <p class="card-text">Django web application for comic enthusiasts (2022).</p>
-                    </div>
-                  </div>
+                <div class="carousel-pad">
+                  <h3 class="fw-bold mb-2">Vigilante Hideout (Django)</h3>
+                  <p class="text-secondary mb-0">
+                    Comic enthusiast hub with authentication + browsing + cart + purchase flow.
+                  </p>
                 </div>
               </div>
               <div class="carousel-item">
-                <div class="d-flex justify-content-center">
-                  <div class="card bg-secondary text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Project 2: Sustainability Prototype</h5>
-                      <p class="card-text">Hackathon project on sustainability (2023).</p>
-                    </div>
-                  </div>
+                <div class="carousel-pad">
+                  <h3 class="fw-bold mb-2">Hackathon Prototype</h3>
+                  <p class="text-secondary mb-0">
+                    Sustainability challenge prototype, placed 3rd in TU Dublin President’s Sustainability Hackathon.
+                  </p>
                 </div>
               </div>
               <div class="carousel-item">
-                <div class="d-flex justify-content-center">
-                  <div class="card bg-secondary text-light">
-                    <div class="card-body">
-                      <h5 class="card-title">Project 3: Final Year Capstone</h5>
-                      <p class="card-text">Capstone project in progress (2024).</p>
-                    </div>
-                  </div>
+                <div class="carousel-pad">
+                  <h3 class="fw-bold mb-2">Capstone (In progress)</h3>
+                  <p class="text-secondary mb-0">
+                    Final-year project area: systems + data, designed with clean UX thinking.
+                  </p>
                 </div>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#projCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#projCarousel" data-bs-slide="next">
               <span class="carousel-control-next-icon"></span>
               <span class="visually-hidden">Next</span>
             </button>
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Work Experience Section -->
-  <section id="experience" class="py-5 bg-secondary text-light">
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section-pad section-alt">
     <div class="container">
-      <h2 class="text-center mb-4">Work Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item mb-5">
-          <h5>Software Developer Intern – Mastercard</h5>
-          <p class="mb-1"><em>Jan 2024 – Jun 2024</em></p>
-          <ul>
-            <li>Developed and maintained software solutions supporting global payment systems.</li>
-            <li>Collaborated with cross-functional teams to design, implement, and test new features.</li>
-            <li>Debugged and optimized code to enhance performance and reliability.</li>
-            <li>Participated in code reviews and agile development processes.</li>
-          </ul>
-        </div>
-        <div class="timeline-item mb-5">
-          <h5>Student Ambassador/Tutor – TU Dublin</h5>
-          <p class="mb-1"><em>2023 – 2024</em></p>
-          <ul>
-            <li>Provided year-round student services, including campus orientation tours for students and parents.</li>
-            <li>Assisted in organizing the university’s Sports and Societies Festival.</li>
-            <li>Welcomed and guided first-year students at campus reception, addressing their inquiries.</li>
-            <li>Supported administrative staff with various tasks and events.</li>
-          </ul>
-        </div>
-        <div class="timeline-item mb-5">
-          <h5>Assistant Lecturer – Rathmines College</h5>
-          <p class="mb-1"><em>2-week Placement in 2020</em></p>
-          <ul>
-            <li>Helped prepare mock exam papers and timetables.</li>
-            <li>Installed software and performed maintenance on classroom computers.</li>
-            <li>Assisted administrative staff with daily tasks and student records management.</li>
-            <li>Reviewed exam results and organized educational materials.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title reveal">Work Experience</h2>
+      <p class="text-secondary reveal delay-1 mb-4">Timeline style, clean and readable.</p>
 
-  <!-- Skills & Achievements Section -->
-  <section id="skills" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Skills & Achievements</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <h5>Technical Skills</h5>
-          <p>Proficient in:</p>
-          <ul class="list-inline">
-            <li class="list-inline-item badge bg-secondary m-1">Python</li>
-            <li class="list-inline-item badge bg-secondary m-1">Java</li>
-            <li class="list-inline-item badge bg-secondary m-1">C++</li>
-            <li class="list-inline-item badge bg-secondary m-1">HTML5/CSS3</li>
-            <li class="list-inline-item badge bg-secondary m-1">JavaScript</li>
-            <li class="list-inline-item badge bg-secondary m-1">Django</li>
-            <li class="list-inline-item badge bg-secondary m-1">UML</li>
-            <li class="list-inline-item badge bg-secondary m-1">SQL/MySQL</li>
-            <li class="list-inline-item badge bg-secondary m-1">Cisco Networking</li>
-            <li class="list-inline-item badge bg-secondary m-1">Linux CLI</li>
-          </ul>
-        </div>
-        <div class="col-md-6 mb-4">
-          <h5>Achievements & Training</h5>
-          <ul>
-            <li>3rd Place – TU Dublin President’s Sustainability Hackathon 2023 (Workday).</li>
-            <li>Participant – AWS & Tallaght University Hospital Hackathon 2023.</li>
-            <li>Participant – Citigroup Junior Achievement Innovation Camp 2017.</li>
-            <li>Accenture Skills at Work Programme (2016/2017).</li>
-            <li>Organized Secondary School 100-Year Anniversary Event.</li>
-            <li>"Queen of Readers" Award, Vranov nad Topľou Library (2013).</li>
-            <li>Advanced English Language Certificate (2015).</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="glass p-4 reveal">
+            <div class="timeline">
 
-  <!-- Hobbies & Interests Section -->
-  <section id="hobbies" class="py-5 bg-secondary text-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Hobbies & Interests</h2>
-      <div class="row text-center">
-        <div class="col-md-3 mb-4">
-          <div class="card bg-dark text-light h-100">
-            <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title">History & Art</h5>
-              <p class="card-text">Enjoys exploring history and art, visiting museums and galleries.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card bg-dark text-light h-100">
-            <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title">Reading & Poetry</h5>
-              <p class="card-text">Avid reader of literature and poetry, with a passion for creative writing.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card bg-dark text-light h-100">
-            <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title">Yoga & Hiking</h5>
-              <p class="card-text">Practices light yoga and enjoys hiking and long walks for relaxation.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 mb-4">
-          <div class="card bg-dark text-light h-100">
-            <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title">Public Speaking</h5>
-              <p class="card-text">Active in public speaking and continually honing communication skills.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-5">
-    <div class="container text-center">
-      <h2 class="mb-4">Contact Me</h2>
-      <p>If you'd like to get in touch, feel free to reach out!</p>
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Me</button>
-      <!-- Contact Modal -->
-      <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content bg-dark text-light">
-            <div class="modal-header">
-              <h5 class="modal-title" id="contactModalLabel">Contact Me</h5>
-              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Tabs for Info and Message -->
-              <ul class="nav nav-tabs mb-3" role="tablist">
-                <li class="nav-item">
-                  <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#infoTabPane" type="button" role="tab" aria-controls="infoTabPane" aria-selected="true">Info</button>
-                </li>
-                <li class="nav-item">
-                  <button class="nav-link" id="form-tab" data-bs-toggle="tab" data-bs-target="#formTabPane" type="button" role="tab" aria-controls="formTabPane" aria-selected="false">Message</button>
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="infoTabPane" role="tabpanel" aria-labelledby="info-tab">
-                  <p><strong>Email:</strong> dargajova@outlook.com</p>
-                  <p><strong>Phone:</strong> +353 89 2323 969</p>
-                  <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dianadargajova" target="_blank" class="text-light">dianadargajova</a></p>
-                  <p><strong>Location:</strong> Dublin 24, Ireland</p>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="d-flex justify-content-between flex-wrap gap-2">
+                    <div>
+                      <div class="h5 mb-0">Software Developer Intern</div>
+                      <div class="text-secondary">Mastercard</div>
+                    </div>
+                    <span class="badge text-bg-info">2024 • 6 months</span>
+                  </div>
+                  <ul class="mt-3 text-secondary mb-0">
+                    <li>Developed and maintained software solutions supporting global payment systems.</li>
+                    <li>Collaborated with cross-functional teams to design, implement, and test features.</li>
+                    <li>Debugged and optimized existing code for performance and reliability.</li>
+                    <li>Participated in code reviews and agile delivery.</li>
+                  </ul>
                 </div>
-                <div class="tab-pane fade" id="formTabPane" role="tabpanel" aria-labelledby="form-tab">
-                  <form>
-                    <div class="mb-3 text-start">
-                      <label for="name" class="form-label">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Your Name">
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="d-flex justify-content-between flex-wrap gap-2">
+                    <div>
+                      <div class="h5 mb-0">Student Ambassador / Tutor</div>
+                      <div class="text-secondary">Technological University Dublin</div>
                     </div>
-                    <div class="mb-3 text-start">
-                      <label for="emailInput" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="emailInput" placeholder="your.email@example.com">
+                    <span class="badge text-bg-secondary">2023 – 2024</span>
+                  </div>
+                  <ul class="mt-3 text-secondary mb-0">
+                    <li>Provided year-round student services and orientation tours.</li>
+                    <li>Supported Sports & Societies Festival management.</li>
+                    <li>Reception support for first-year student queries.</li>
+                    <li>Assisted administrative staff with tasks and events.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="d-flex justify-content-between flex-wrap gap-2">
+                    <div>
+                      <div class="h5 mb-0">Assistant Lecturer</div>
+                      <div class="text-secondary">Rathmines College</div>
                     </div>
-                    <div class="mb-3 text-start">
-                      <label for="message" class="form-label">Message</label>
-                      <textarea class="form-control" id="message" rows="3" placeholder="Your message..."></textarea>
-                    </div>
-                    <button type="button" class="btn btn-success w-100" data-bs-dismiss="modal" onclick="alert('Thank you for reaching out!')">Send Message</button>
-                  </form>
+                    <span class="badge text-bg-secondary">2020 • 2 weeks</span>
+                  </div>
+                  <ul class="mt-3 text-secondary mb-0">
+                    <li>Prepared mock exam papers and timetables.</li>
+                    <li>Installed software and performed maintenance on computers.</li>
+                    <li>Supported admin duties; reviewed exam grades; printed/laminated safety posters.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="glass p-4 reveal delay-1">
+            <div class="h5">Volunteering</div>
+            <ul class="text-secondary mb-0">
+              <li>Fundraised for Pieta House and the Marie Keating Foundation (2016).</li>
+              <li>Personal assistant support for visually & audibly impaired student at TU Dublin (endorsed by disability office).</li>
+            </ul>
+          </div>
+
+          <div class="glass p-4 reveal delay-2 mt-4">
+            <div class="h5">Impact counters</div>
+            <div class="row g-3 mt-1">
+              <div class="col-6">
+                <div class="stat">
+                  <div class="stat-num" data-count="4">0</div>
+                  <div class="stat-label">Roles listed</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat">
+                  <div class="stat-num" data-count="10">0</div>
+                  <div class="stat-label">Key skills</div>
+                </div>
+              </div>
+            </div>
+            <div class="small text-secondary mt-2">Animated on scroll (JS + IntersectionObserver).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section-pad">
+    <div class="container">
+      <h2 class="section-title reveal">Skills & Achievements</h2>
+      <p class="text-secondary reveal delay-1 mb-4">Progress bars animate when visible.</p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="glass p-4 reveal">
+            <div class="h5 mb-3">Technical Skills</div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>Python</span><span class="text-secondary">Strong</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="86" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>Java</span><span class="text-secondary">Strong</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="82" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>C++</span><span class="text-secondary">Strong</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="76" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>HTML/CSS/Bootstrap</span><span class="text-secondary">Strong</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="88" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>JavaScript</span><span class="text-secondary">Growing</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="74" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="d-flex justify-content-between">
+                <span>SQL/MySQL</span><span class="text-secondary">Strong</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar bg-info" data-skill="80" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <span class="badge text-bg-secondary">Django</span>
+              <span class="badge text-bg-secondary">UML</span>
+              <span class="badge text-bg-secondary">ERD + Normalisation</span>
+              <span class="badge text-bg-secondary">Cisco Packet Tracer</span>
+              <span class="badge text-bg-secondary">Linux CLI</span>
+              <span class="badge text-bg-secondary">Testing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass p-4 reveal delay-1">
+            <div class="h5 mb-3">Achievements & Training</div>
+
+            <div class="list-group list-group-flush">
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                <div class="d-flex justify-content-between">
+                  <span>3rd place • TU Dublin President’s Sustainability Hackathon (Workday)</span>
+                  <span class="badge text-bg-success">2023</span>
+                </div>
+              </div>
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                Participated in AWS & Tallaght University Hospital Hackathon
+                <span class="badge text-bg-secondary float-end">2023</span>
+              </div>
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                Junior Achievement Ireland Innovation Camp (Citigroup)
+                <span class="badge text-bg-secondary float-end">2017</span>
+              </div>
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                Accenture Skills at Work Programme
+                <span class="badge text-bg-secondary float-end">2016/2017</span>
+              </div>
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                Advanced English Language Program (certification)
+                <span class="badge text-bg-secondary float-end">2013–2015</span>
+              </div>
+              <div class="list-group-item bg-transparent text-light border-white border-opacity-10">
+                “Queen of Readers” award (Vranov nad Topľou library)
+                <span class="badge text-bg-secondary float-end">2013</span>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button class="btn btn-outline-info w-100" id="toastBtn">
+                <i class="bi bi-bell"></i> Show “Nice to meet you” Toast
+              </button>
+            </div>
+          </div>
+
+          <div class="glass p-4 reveal delay-2 mt-4">
+            <div class="h5">Soft Skills</div>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+              <span class="chip">Analytical thinker</span>
+              <span class="chip">Adaptable</span>
+              <span class="chip">Quick learner</span>
+              <span class="chip">Public speaking</span>
+              <span class="chip">Team player</span>
+              <span class="chip">Communication</span>
+              <span class="chip">Project focus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies" class="section-pad section-alt">
+    <div class="container">
+      <h2 class="section-title reveal">Hobbies & Interests</h2>
+      <p class="text-secondary reveal delay-1 mb-4">Hover effects + subtle motion.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="hover-card glass p-4 h-100 reveal">
+            <div class="icon-badge"><i class="bi bi-journal-bookmark"></i></div>
+            <div class="h5 mt-3">Reading</div>
+            <div class="text-secondary">Literature, history and deep dives into topics.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="hover-card glass p-4 h-100 reveal delay-1">
+            <div class="icon-badge"><i class="bi bi-feather"></i></div>
+            <div class="h5 mt-3">Poetry</div>
+            <div class="text-secondary">Creative writing + storytelling.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="hover-card glass p-4 h-100 reveal delay-2">
+            <div class="icon-badge"><i class="bi bi-person-walking"></i></div>
+            <div class="h5 mt-3">Long Walks & Hiking</div>
+            <div class="text-secondary">Reset + reflection + fresh ideas.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="hover-card glass p-4 h-100 reveal delay-3">
+            <div class="icon-badge"><i class="bi bi-peace"></i></div>
+            <div class="h5 mt-3">Meditating & Yoga</div>
+            <div class="text-secondary">Focus, calm, clarity.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-pad">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="section-title reveal">Contact</h2>
+          <p class="text-secondary reveal delay-1 mb-0">
+            Detailed contact section + form validation + toast feedback.
+          </p>
+        </div>
+
+        <div class="reveal delay-2 d-flex gap-2">
+          <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <i class="bi bi-envelope-paper"></i> Open Contact Modal
+          </button>
+          <button class="btn btn-outline-light" id="copyEmailBtn" data-bs-toggle="tooltip" data-bs-title="Copy email to clipboard">
+            <i class="bi bi-clipboard"></i> Copy Email
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="glass p-4 reveal">
+            <div class="h5 mb-3">Contact Details</div>
+
+            <div class="d-grid gap-2">
+              <a class="btn btn-outline-light text-start" href="mailto:dargajova@outlook.com">
+                <i class="bi bi-at me-2"></i> dargajova@outlook.com
+              </a>
+              <a class="btn btn-outline-light text-start" href="tel:+353892323969">
+                <i class="bi bi-telephone me-2"></i> +353 89 2323 969
+              </a>
+              <a class="btn btn-outline-light text-start" target="_blank" rel="noreferrer" href="https://linkedin.com/in/dianadargajova">
+                <i class="bi bi-linkedin me-2"></i> linkedin.com/in/dianadargajova
+              </a>
+              <div class="btn btn-outline-light text-start disabled" aria-disabled="true">
+                <i class="bi bi-geo-alt me-2"></i> Dublin 24 • Eircode: D24 HD70
+              </div>
+            </div>
+
+            <hr class="border-white border-opacity-10 my-4">
+            <div class="small text-secondary">
+              Tip: Use GitHub Pages. Your site will be: <code>https://username.github.io</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="glass p-4 reveal delay-1">
+            <div class="h5 mb-3">Send a message</div>
+
+            <form id="contactForm" class="row g-3 needs-validation" novalidate>
+              <div class="col-md-6">
+                <label class="form-label">Name</label>
+                <input class="form-control" id="fName" required placeholder="Your name" />
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="fEmail" required placeholder="name@example.com" />
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Category</label>
+                <select class="form-select" id="fCat" required>
+                  <option value="" selected disabled>Choose…</option>
+                  <option>Internship / Graduate Role</option>
+                  <option>Freelance / Web project</option>
+                  <option>Collaboration</option>
+                  <option>General</option>
+                </select>
+                <div class="invalid-feedback">Please select a category.</div>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" id="fMsg" rows="4" required placeholder="Write your message…"></textarea>
+                <div class="invalid-feedback">Please type a message.</div>
+              </div>
+
+              <div class="col-12 d-flex gap-2">
+                <button class="btn btn-info" type="submit">
+                  <i class="bi bi-send"></i> Submit
+                </button>
+                <button class="btn btn-outline-light" type="reset">
+                  Reset
+                </button>
+              </div>
+            </form>
+
+            <!-- Inline Bootstrap Alert (shown by JS) -->
+            <div id="formAlert" class="alert alert-success mt-3 d-none" role="alert">
+              <div class="fw-semibold">Message ready!</div>
+              <div class="small">Form validated successfully (demo). In a real site you would send this to a server.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="pt-5 mt-4 text-center text-secondary small">
+        <div class="mb-2">
+          <a class="link-secondary" href="credits.html">Credits & Sources</a>
+        </div>
+        <div>© <span id="yearNow"></span> Diana Dargajova • Built for Data Visualisation CA 2</div>
+      </footer>
+    </div>
+  </section>
+
+  <!-- Scroll to top -->
+  <button id="toTop" class="btn btn-info btn-icon" type="button" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Toast container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="helloToast" class="toast text-bg-dark border border-white border-opacity-10" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-transparent text-light border-0">
+        <strong class="me-auto"><i class="bi bi-stars"></i> Hello</strong>
+        <small class="text-secondary">now</small>
+        <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body text-secondary">
+        Thanks for visiting — explore the projects section and open the contact modal for quick details.
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass border border-white border-opacity-10">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="projectModalTitle">Project</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-secondary" id="projectModalDesc"></p>
+          <div class="d-flex flex-wrap gap-2" id="projectModalTags"></div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal (required) -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass border border-white border-opacity-10">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Contact Diana</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Tabs inside modal -->
+          <ul class="nav nav-pills gap-2 mb-3" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabInfo" type="button" role="tab">
+                Info
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabQuick" type="button" role="tab">
+                Quick message
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="tabInfo" role="tabpanel">
+              <div class="d-grid gap-2">
+                <a class="btn btn-outline-light text-start" href="mailto:dargajova@outlook.com">
+                  <i class="bi bi-at me-2"></i> dargajova@outlook.com
+                </a>
+                <a class="btn btn-outline-light text-start" href="tel:+353892323969">
+                  <i class="bi bi-telephone me-2"></i> +353 89 2323 969
+                </a>
+                <a class="btn btn-outline-light text-start" target="_blank" rel="noreferrer"
+                   href="https://linkedin.com/in/dianadargajova">
+                  <i class="bi bi-linkedin me-2"></i> in/dianadargajova
+                </a>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="tabQuick" role="tabpanel">
+              <div class="small text-secondary mb-2">This is a demo (GitHub Pages is static).</div>
+              <div class="input-group">
+                <span class="input-group-text bg-transparent text-light border-white border-opacity-10">
+                  <i class="bi bi-chat-dots"></i>
+                </span>
+                <input id="quickMsg" class="form-control bg-transparent text-light border-white border-opacity-10"
+                       placeholder="Type something nice…" />
+              </div>
+              <button class="btn btn-info w-100 mt-3" id="sendQuickMsg">
+                <i class="bi bi-send"></i> Send (Toast)
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <a class="btn btn-outline-light" href="#contact" data-bs-dismiss="modal">Go to Contact Section</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV Snapshot Modal -->
+  <div class="modal fade" id="cvModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass border border-white border-opacity-10">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">CV Snapshot</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="mini-card h-100">
+                <div class="mini-title"><i class="bi bi-mortarboard"></i> Education</div>
+                <div class="text-secondary small mt-2">
+                  BSc (Hons) Computing with Software Development — TU Dublin (2020–Present)<br>
+                  QQI Level 5 Computer Programming — Distinction (2019–2020)
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mini-card h-100">
+                <div class="mini-title"><i class="bi bi-briefcase"></i> Experience</div>
+                <div class="text-secondary small mt-2">
+                  Software Developer Intern — Mastercard (6 months, 2024)<br>
+                  Student Ambassador/Tutor — TU Dublin (2023–2024)<br>
+                  Assistant Lecturer — Rathmines (2 weeks, 2020)
                 </div>
               </div>
             </div>
           </div>
+          <hr class="border-white border-opacity-10 my-4">
+          <div class="small text-secondary">
+            Full details are on the page sections (this modal is just a quick overview).
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+          <a class="btn btn-info" href="#education" data-bs-dismiss="modal">Go to Education</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Bootstrap JS (Bundle with Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Initialize Bootstrap's ScrollSpy
-    const scrollSpy = new bootstrap.ScrollSpy(document.body, {
-      target: '#navbar-main'
-    });
-  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
 </body>
 </html>
