@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+.nav-link:hover {
+  color: #0dcaf0;
+}
+.nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.card:hover {
+  transform: translateY(-3px);
+  transition: transform 0.3s;
+}
