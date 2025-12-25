@@ -36,9 +36,41 @@
   </div>
 </nav>
 
-  <div id="section1" class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
-    <h1>Section 1</h1>
-  </div>
+  <div id="section1" class="container-fluid p-0">
+
+     <!-- Top bar -->
+     <div class="d-flex justify-content-between align-items-center px-4 py-3">
+       <span class="fw-bold">HOME</span>
+       <button class="btn btn-outline-secondary btn-sm">
+         DOWNLOAD FULL RESUME
+       </button>
+     </div>
+   
+        <!-- Hero background -->
+        <div class="position-relative text-center text-white"
+             style="min-height:70vh;
+                    background-image:url('https://images.unsplash.com/photo-1450101215322-bf5cd27642fc');
+                    background-size:cover;
+                    background-position:center;">
+      
+          <!-- Overlay -->
+             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+      
+          <!-- Text -->
+          <div class="position-relative d-flex flex-column justify-content-center align-items-center h-100">
+            <h1 class="display-4 fw-semibold">John Roberts</h1>
+            <p class="text-uppercase letter-spacing">Business Expert</p>
+          </div>
+        </div>
+      
+     <!-- Profile image -->
+     <div class="d-flex justify-content-center">
+       <img src="https://randomuser.me/api/portraits/men/32.jpg"
+            class="rounded-circle border border-4 border-white"
+            style="width:140px;height:140px;margin-top:-70px;">
+     </div>
+
+</div>
 
   <div id="section2" class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-secondary text-white">
     <h1>Section 2</h1>
