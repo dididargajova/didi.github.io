@@ -39,30 +39,33 @@
 
     <div id="section1" class="container-fluid p-0">
 
-        <!-- HERO -->
+        <!-- HERO BACKGROUND -->
         <div class="position-relative text-white d-flex align-items-center justify-content-center" style="height:85vh;
-              background-image:url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=80');
+              background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80');
               background-size:cover;
               background-position:center;">
 
-            <!-- Dark overlay -->
+            <!-- DARK OVERLAY -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
 
-            <!-- Title content -->
+            <!-- TITLE -->
             <div class="position-relative text-center px-3">
                 <h1 class="display-3 fw-semibold mb-2">John Roberts</h1>
                 <p class="text-uppercase mb-0" style="letter-spacing:4px;">Business Expert</p>
             </div>
         </div>
 
-        <!-- PHOTO BAND (so the circle doesn't look weird) -->
-        <div class="bg-body d-flex justify-content-center" style="height:110px;">
+        <!-- PROFILE IMAGE ON TOP -->
+        <div class="d-flex justify-content-center position-relative" style="height:0;">
             <img src="https://randomuser.me/api/portraits/men/32.jpg"
-                class="rounded-circle border border-5 border-white"
-                style="width:150px;height:150px;margin-top:-75px;object-fit:cover;">
+                class="rounded-circle border border-5 border-white bg-white shadow" style="width:160px;
+                height:160px;
+                object-fit:cover;
+                transform:translateY(-80px);">
         </div>
 
     </div>
+
 
 
     <div id="section2"
